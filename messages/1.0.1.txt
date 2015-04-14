@@ -1,0 +1,5 @@
+##Sphere Online Judge 1.0.1
+
+In this release, the API has been updated to include metadata (source limit, time limit etc) and a bug causing problems with Commands in the Command Pallete has been fixed.
+
+Sorry for any inconvenience!
