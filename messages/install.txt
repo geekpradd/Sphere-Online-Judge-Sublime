@@ -6,7 +6,7 @@ This plugin is used for displaying Sphere Online Judge problem contents in a tex
 
 Usage:
 
-You can click on the Tools Menu, then Sphere Online Judge-> Respective Options
+You can click on the Tools Menu, then Sphere Online Judge-> Respective Options (there are two).
 The Command Pallete also has these options.
 
 The first option, reads the first 5 lines of your current opened file for a problem id. The probem ID is used by Sphere Online Judge for submissions and serving content.
