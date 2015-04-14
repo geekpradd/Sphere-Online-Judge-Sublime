@@ -14,6 +14,6 @@ def problem(id):
 def index():
 	return redirect("https://github.com/geekpradd/Sphere-Online-Judge-Sublime")
 
-#For testing on Linux
-# if __name__ == "__main__":
-# 	app.run(debug=True, port=8000)
+
+if __name__ == "__main__":
+	app.run(debug=True, port=5000)
