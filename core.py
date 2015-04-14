@@ -5,7 +5,10 @@ URL = "http://www.spoj.com/problems/%s/"
 
 def get_parsed(tag): 
 	uri = URL % tag 
-	soup = BeautifulSoup(requests.get(uri).text) 
+	r = requests.get(uri) 
+	if r.status_code >=300:
+		return None
+	soup = BeautifulSoup(r.text) 
 	problem = soup.select("#problem-body")[0]
 	title = soup.select("#problem-name")[0]
 	problem.insert(0, title)
@@ -19,5 +22,4 @@ def get_parsed(tag):
 		match.replaceWith("[code]\n"+match.text+"[/code]")
 	return problem.text.strip()
 
-print get_parsed("PRIME1")
 
