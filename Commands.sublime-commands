@@ -1,6 +1,11 @@
 [
   {
-    "caption": "Sphere Online Judge: View Problem Data",
+    "caption": "Sphere Online Judge: View Problem (read file for Problem ID)",
+    "command": "sphere_online",
+    "args": {"types": "read"}
+  },
+  {
+    "caption": "Sphere Online Judge: View Problem (prompt for Problem ID)",
     "command": "sphere_online"
   }
 ]

@@ -10,8 +10,10 @@ except:
 
 @cache 
 def get_text(id):
-    return (urlopen("http://sphereonlinejudge.herokuapp.com/problem/%s" % id).read().decode("utf-8").replace("\r", ""))
-
+    try:
+        return (urlopen("http://sphereonlinejudge.herokuapp.com/problem/%s" % id.upper()).read().decode("utf-8").replace("\r", ""))
+    except:
+        return None
 class SphereOnlineCommand(sublime_plugin.TextCommand):
 
     def fetch_text(self):
@@ -24,11 +26,11 @@ class SphereOnlineCommand(sublime_plugin.TextCommand):
             if "@problem:" in e:
                 return e.split("@problem:")[-1].strip() 
         return None
-    def run(self, edit):
+    def run(self, edit, types=None):
         self.holder = None
         self.window = sublime.active_window()
         id = self.check_for_doc()
-        if id:
+        if id and types=="read":
             self.display(id)
         else:
             if not self.holder:
@@ -39,6 +41,7 @@ class SphereOnlineCommand(sublime_plugin.TextCommand):
                     "Sphere Online Judge Problem ID:", HOLDER, lambda s: self.display(s), None, None)
 
     def display(self, id):
+        sublime.status_message("Fetching problem content..")
         self.holder = id
         self.id = id
         thread = threading.Thread(target=self.display_content)
@@ -46,7 +49,12 @@ class SphereOnlineCommand(sublime_plugin.TextCommand):
 
     def display_content(self):
         string = get_text(self.id)
-        self.show_text(string)
+        if string is None:
+            sublime.status_message("Invalid Code")
+            sublime.error_message("Invalid Problem Code")
+        else:
+            self.show_text(string)
+            sublime.status_message("")
 
     def show_text(self,msg):
         self.output_view = self.window.get_output_panel("textarea")

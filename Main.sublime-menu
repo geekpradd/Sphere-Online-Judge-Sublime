@@ -1,0 +1,27 @@
+[
+  {
+    "caption": "Tools",
+    "mnemonic": "t",
+    "id": "tools",
+    "children": [
+      {
+        "caption": "Sphere Online Judge",
+        "mnemonic": "s",
+        "id": "spoj",
+        "children": [
+          {
+            "caption": "Sphere Online Judge: View Problem (read file for Problem ID)",
+            "command": "sphere_online",
+            "args": {
+              "types": "read"
+            }
+          },
+          {
+            "caption": "Sphere Online Judge: View Problem (prompt for Problem ID)",
+            "command": "sphere_online"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+##Sphere Online Judge 
+
+Thanks for installing the Sphere Online Judge Sublime Plugin!
+
+This plugin is used for displaying Sphere Online Judge problem contents in a textarea in Sublime Text so that problems can be read and coded together at the same time!
+
+Usage:
+
+You can click on the Tools Menu, then Sphere Online Judge-> Respective Options
+The Command Pallete also has these options.
+
+The first option, reads the first 5 lines of your current opened file for a problem id. The probem ID is used by Sphere Online Judge for submissions and serving content.
+
+For example, the prime generator problem's URL is : http://www.spoj.com/problems/PRIME1/
+and here the problem ID is PRIME1
+
+You can declare the problem ID in your codefile as a docstring parameter.
+
+In Python, you can do:
+"""
+@problem: PRIME1
+"""
+In java, C, C++
+/*
+* @problem: PRIME1
+*/
+
+If the plugin can't find the ID, it will automatically prompt you for the ID.
+
+The second option does the same, it just does not check the view for the ID and implicitly asks you for the ID.
+
+Thanks for using, and feel free to fork, star and watch the repo on github at https://github.com/geekpradd/Sphere-Online-Judge-Sublime.
