@@ -59,6 +59,11 @@ class SphereOnlineCommand(sublime_plugin.TextCommand):
     def show_text(self,msg):
         self.output_view = self.window.get_output_panel("textarea")
         self.window.run_command("show_panel", {"panel": "output.textarea"})
+        
+        s = self.output_view.settings()
+        s.set("word_wrap", True)
+        
         self.output_view.set_read_only(False)
+        
         self.output_view.run_command("append", {"characters": msg})
         self.output_view.set_read_only(True)
